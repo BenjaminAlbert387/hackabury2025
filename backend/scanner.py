@@ -1,3 +1,4 @@
+from flask import *
 import re #Import that parses words
 import nltk #Import for downloading nltk resources
 from nltk.corpus import stopwords #Import nltk module for parsing stopwords
@@ -13,6 +14,9 @@ try:
 except LookupError:
     nltk.download('stopwords')
 
+app = Flask(__name__)
+
+@app.route("/emailscanner")
 def scan(input_text):
     report = ""
     if input_text is None:
