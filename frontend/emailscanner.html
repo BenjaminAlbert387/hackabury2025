@@ -7,6 +7,34 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-    <input type="text" id="input_text" placeholder="Paste your email into here">
+    <input type="text" id="inputtext" placeholder="Paste your email into here">
+    <button id="submitbutton">Scan</button>
+    <pre id="resultRep" style="white-space: pre-wrap; margin-top: 1rem;"></pre>
+
+    <script>
+        document.getElementById('submitbutton').addEventListener('click', async () => {
+            const inputText = document.getElementById('inputtext').value;
+
+            try {
+                const response = await fetch('/backend/emailscanner.py', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ input_text: inputText})
+                });
+
+                if (!response.ok) {
+                    throw new Error("Something went wrong.");
+                }
+
+                const data = await response.json();
+                document.getElementById('resultRep').textContent = data.report;
+            } catch (error) {
+                document.getElementById('resultRep').textContent = 'Something went wrong.';
+                console.error(error);
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import *
+from flask import Flask, request, jsonify
 import re #Import that parses words
 import nltk #Import for downloading nltk resources
 from nltk.corpus import stopwords #Import nltk module for parsing stopwords
@@ -22,7 +22,7 @@ def scan(input_text):
     if input_text is None:
         input_text = ""
     else:
-        input_text.strip().lower()
+        input_text = input_text.strip().lower()
 
     wordtokens = word_tokenize(input_text)
 
@@ -74,3 +74,13 @@ def scan(input_text):
             report += "- Phone Number: 0300 123 2040\n\n"
 
         return report
+
+@app.route('/scan', methods=['POST'])
+def handle_scan():
+    data = request.get_json()
+    input_text = data.get('input_text', '')
+    report = scan(input_text)
+    return jsonify({'report': report})
+
+if __name__ == '__main__':
+    app.run(debug=True)
