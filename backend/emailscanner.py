@@ -16,6 +16,7 @@ except LookupError:
 
 app = Flask(__name__)
 
+
 def scan(input_text):
     report = ""
     if input_text is None:
@@ -25,8 +26,8 @@ def scan(input_text):
 
     wordtokens = word_tokenize(input_text)
 
-    stop_words = set(stopwords.words("english"))
-    filter_words = [word for word in words if word not in stop_words]
+    stop_words = set(stopwords.wordtokens("english"))
+    filter_words = [word for word in wordtokens if word not in stop_words]
 
     bad_words = ["prize", "diamonds", "required", "inheritance", "now", "alaye",
                 "consignment", "100", "government", "business", "urgent", "royalty"]
@@ -50,7 +51,7 @@ def scan(input_text):
 
     report = f"Your score is: {score}\n\n"
 
-    if score >= 20:
+        if score >= 20:
             report += "Highly likely to be a scam. Do not interact and report the sender.\n"
             report += "DO NOT click any links in this email.\n"
             report += "Remember: No legitimate business will tell you to give any personal details over email or phone.\n"
