@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body class="bg-light">
+    <div class="container d-flex flex-column justify-content-center align-items-center vh-100 text-center">
+        <h1 class="text-primary">URL Scanner</h1>
+        <p class="text-secondary">Enter the URL in the text box below then click on the "Scan me!" button.</p>
+        <p class="text-secondary">Example valid URL: https://www.google.com/search?q=barclays</p>
+        <p class="text-secondary" id="status">{{ status | safe }}</p>
+        <form class="w-50" action="/urlscanner" method="POST">
+            <input type="text" name="uRL" class="mb-3 form-control " placeholder="https://" value="https://">
+            <button type="submit" class="btn btn-primary w-100">Scan me!</button>
+        </form>
+    </div>
+</body>
+<script>
+    function countDown() {
+        const originalText = document.getElementById("status").innerHTML;
+        document.getElementById("status").innerHTML = counter;
+        let counter = 11;
+        const interval = setInterval(() => {
+            document.getElementById("status").innerHTML = counter;
+            counter--;
+            if (counter < 0) {
+                clearInterval(interval);
+                document.getElementById("status").innerHTML = originalText;
+            }
+        }, 1000);
+    }
+    if (document.getElementById("status").innerHTML.startsWith("Submission successful - ")){ countDown() }
+</script>
+
+</html>
