@@ -19,5 +19,10 @@ def submit():
     print("### /urlscanner - INPUTTED URL: "+input)
     return render_template('uRLScanner.html', status=uRLScan(input))
 
+@app.route('/emailscanner', methods=['POST'])
+def scanemail():
+    input = request.json()
+    print(input)
+
 if __name__ == '__main__':
     app.run(debug=True)
