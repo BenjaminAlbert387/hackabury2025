@@ -16,7 +16,6 @@ except LookupError:
 
 app = Flask(__name__)
 
-@app.route("/emailscanner")
 def scan(input_text):
     report = ""
     if input_text is None:

@@ -16,7 +16,7 @@
             const inputText = document.getElementById('inputtext').value;
 
             try {
-                const response = await fetch('/backend/emailscanner.py', {
+                const response = await fetch('/scan', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
