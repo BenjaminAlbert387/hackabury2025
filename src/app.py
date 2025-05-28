@@ -24,7 +24,7 @@ def submit():
     logging.info("### /urlscanner - INPUTTED URL: "+input)
     return render_template('uRLScanner.html', status=uRLScan(input))
 
-@app.route('/scan', methods=['POST'])
+@app.route('/text_scan', methods=['POST'])
 def scanemail():
     input = request.form
     logging.info(input)
