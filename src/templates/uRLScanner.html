@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-</head>
+{% include "header.html" %}
+<title>URL Scanner</title>
 
 <body class="bg-light">
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100 text-center">
@@ -18,6 +12,7 @@
             <button type="submit" class="btn btn-primary w-100">Scan me!</button>
         </form>
     </div>
+    {% include "footer.html" %}
 </body>
 <script>
     function countDown() {
@@ -35,5 +30,4 @@
     }
     if (document.getElementById("status").innerHTML.startsWith("Submission successful - ")){ countDown() }
 </script>
-
 </html>

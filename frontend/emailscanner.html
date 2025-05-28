@@ -27,6 +27,8 @@
                     body: JSON.stringify({ input_text: inputText})
                 });
 
+                console.log("Response status:", response.status);
+
                 if (!response.ok) {
                     throw new Error("1. Something went wrong1.");
                 }
