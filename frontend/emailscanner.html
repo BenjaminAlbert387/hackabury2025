@@ -28,13 +28,13 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error("1. Something went wrong.");
+                    throw new Error("1. Something went wrong1.");
                 }
 
                 const data = await response.json();
                 document.getElementById('resultRep').textContent = data.report;
             } catch (error) {
-                document.getElementById('resultRep').textContent = '2. Something went wrong.';
+                document.getElementById('resultRep').textContent = '2. Something went wrong2.';
                 console.error(error);
             }
         });

@@ -100,6 +100,10 @@ def text_scan(input_text):
         "- Phone Number: 0300 123 2040\n\n"
        )
         report_actual = "".join(report_lines)
+<<<<<<< HEAD
         return jsonify({"Report": report_actual}) 
+=======
+        return jsonify({"report": report_actual}) 
+>>>>>>> b9ac5ef82d7625af5287f23086a844e84886c252
     except Exception as error: 
         raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
