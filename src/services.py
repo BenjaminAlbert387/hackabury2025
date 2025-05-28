@@ -47,7 +47,7 @@ def text_scan(input_text):
 
         wordtokens = word_tokenize(input_text)
 
-        stop_words = set(stopwords.wordtokens("english"))
+        stop_words = set(stopwords.words("english"))
         filter_words = [word for word in wordtokens if word not in stop_words]
 
         bad_words = ["prize", "diamonds", "required", "inheritance", "now", "alaye",
@@ -99,7 +99,12 @@ def text_scan(input_text):
         "- Website: https://www.actionfraud.police.uk/\n"
         "- Phone Number: 0300 123 2040\n\n"
        )
+<<<<<<< HEAD
         report_actual = "".join(report_lines)
         return jsonify({"Report": report_actual}) 
+=======
+        report_actual = {"report":report}
+        return report_actual
+>>>>>>> eac0d5c7eabdb46330968f5ca7321321eba049cd
     except Exception as error: 
         raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
