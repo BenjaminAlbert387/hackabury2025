@@ -5,7 +5,7 @@ import re #Import that parses words
 import nltk #Import for downloading nltk resources
 from nltk.corpus import stopwords #Import nltk module for parsing stopwords
 from nltk.tokenize import word_tokenize #Import for tokenzising and processing words
-
+import traceback
 
 def uRLScan(uRL:str):
     try:
