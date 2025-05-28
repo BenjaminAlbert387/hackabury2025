@@ -1,5 +1,6 @@
 {% include "header.html" %}
 <title>URL Scanner</title>
+</head>
 
 <body class="bg-light">
     <div class="container d-flex flex-column justify-content-center align-items-center vh-100 text-center">
@@ -12,8 +13,8 @@
             <button type="submit" class="btn btn-primary w-100">Scan me!</button>
         </form>
     </div>
-    {% include "footer.html" %}
 </body>
+{% include "footer.html" %}
 <script>
     function countDown() {
         const originalText = document.getElementById("status").innerHTML;
