@@ -7,19 +7,19 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-    <form action="/scan" method="POST">
+    <form action="/scanemail" method="POST">
         <input type="text" id="inputtext" placeholder="Paste your email into here">
         <button type="submit" id="submitbutton">Scan</button>
     </form>
     <pre id="resultRep" style="white-space: pre-wrap; margin-top: 1rem;"></pre>
 
     <script>
-        /*
         document.getElementById('submitbutton').addEventListener('click', async () => {
+            event.preventDefault();
             const inputText = document.getElementById('inputtext').value;
 
             try {
-                const response = await fetch('/scan', {
+                const response = await fetch('/scanemail', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -28,17 +28,16 @@
                 });
 
                 if (!response.ok) {
-                    throw new Error("Something went wrong.");
+                    throw new Error("1. Something went wrong1.");
                 }
 
                 const data = await response.json();
                 document.getElementById('resultRep').textContent = data.report;
             } catch (error) {
-                document.getElementById('resultRep').textContent = 'Something went wrong.';
+                document.getElementById('resultRep').textContent = '2. Something went wrong2.';
                 console.error(error);
             }
         });
-        */
     </script>
 </body>
 </html>
