@@ -47,7 +47,7 @@ def text_scan(input_text):
 
         wordtokens = word_tokenize(input_text)
 
-        stop_words = set(stopwords.wordtokens("english"))
+        stop_words = set(stopwords.words("english"))
         filter_words = [word for word in wordtokens if word not in stop_words]
 
         bad_words = ["prize", "diamonds", "required", "inheritance", "now", "alaye",
