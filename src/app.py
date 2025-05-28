@@ -40,9 +40,9 @@ def scanemail():
         data = request.get_json()
         input_text = data.get("input_text")
 
-        try:
-            report = text_scan(input_text)
-            return jsonify({"report": report})
+        
+        report = text_scan(input_text)
+        return jsonify({"report": report})
 
         #return text_scan(input_text)
      except Exception as error:
