@@ -40,7 +40,7 @@ except LookupError:
 def text_scan(input_text):
     try: 
         report = ""
-        if input_text is None or not isinstance(input_text,str):
+        if input_text is None or not isinstance(input_text, str) or not input_text.strip():
             return jsonify({"Error":"There is not anything provided or provided data is not text as expected"}),400
         else:
             input_text = input_text.strip().lower()
@@ -100,10 +100,6 @@ def text_scan(input_text):
         "- Phone Number: 0300 123 2040\n\n"
        )
         report_actual = "".join(report_lines)
-<<<<<<< HEAD
         return jsonify({"Report": report_actual}) 
-=======
-        return jsonify({"report": report_actual}) 
->>>>>>> b9ac5ef82d7625af5287f23086a844e84886c252
     except Exception as error: 
         raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
