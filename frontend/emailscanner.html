@@ -15,10 +15,11 @@
 
     <script>
         document.getElementById('submitbutton').addEventListener('click', async () => {
+            event.preventDefault();
             const inputText = document.getElementById('inputtext').value;
 
             try {
-                const response = await fetch('/text_scan', {
+                const response = await fetch('/scan', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

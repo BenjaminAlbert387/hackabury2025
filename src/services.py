@@ -103,3 +103,10 @@ def text_scan(input_text):
         return report
     except Exception as error: 
         raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
+
+@app.route('text_scan', methods=['POST'])
+def scan():
+    data = request.get_json()
+    input_text = data.get('input_text', '')
+
+    return text_scan(input_text)
