@@ -100,6 +100,6 @@ def text_scan(input_text):
         "- Phone Number: 0300 123 2040\n\n"
        )
         report_actual = "".join(report_lines)
-        return jsonify({"report": report_actual}) 
+        return jsonify({"report": report_actual})
     except Exception as error: 
         return jsonify({"Error": f"Unexpected error while scanning text: {error}"}), 500
