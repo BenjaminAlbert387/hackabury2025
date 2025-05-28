@@ -40,7 +40,11 @@ def scanemail():
         data = request.get_json()
         input_text = data.get("input_text")
 
-        return text_scan(input_text)
+        try:
+            report = text_scan(input_text)
+            return jsonify({"report": report})
+
+        #return text_scan(input_text)
      except Exception as e:
         return jsonify({"Error": f"Unexpected server error: {str(e)}"}), 500
 
