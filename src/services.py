@@ -99,7 +99,7 @@ def text_scan(input_text):
         "- Website: https://www.actionfraud.police.uk/\n"
         "- Phone Number: 0300 123 2040\n\n"
        )
-        report = "".join(report_lines)
-        return report
+        report_actual = {"Report":report}
+        return report_actual
     except Exception as error: 
         raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
