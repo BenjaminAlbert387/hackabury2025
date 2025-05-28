@@ -45,8 +45,8 @@ def scanemail():
             return jsonify({"report": report})
 
         #return text_scan(input_text)
-     except Exception as e:
-        return jsonify({"Error": f"Unexpected server error: {str(e)}"}), 500
+     except Exception as error:
+        return jsonify({"Error": f"Unexpected server error: {error}"}), 500
 
 
 if __name__ == '__main__':
