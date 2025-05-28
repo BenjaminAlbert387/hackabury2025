@@ -103,4 +103,5 @@ def text_scan(input_text):
         return report_actual
         #return jsonify({"report": report_actual})
     except Exception as error: 
+        traceback.print_exc()
         return jsonify({"Error": f"Unexpected error while scanning text: {error}"}), 500
