@@ -15,6 +15,10 @@ def home(): return render_template('index.html')
 def urlscanner(): 
     return render_template('uRLScanner.html', status="Waiting - Ready to scan URLs")
 
+
+@app.route('/quiz')
+def render_quiz() : return render_template('quiz.html')
+
 @app.route("/emailscanner")
 def emailscanner(): return render_template('emailscanner.html')
 
