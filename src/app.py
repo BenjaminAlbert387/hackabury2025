@@ -31,7 +31,7 @@ def submit():
 
 
 @app.route('/scanemail', methods=['POST'])
-def scanemail(input_text):
+def scanemail():
      try:
         # Check if request is JSON
         if not request.is_json:
