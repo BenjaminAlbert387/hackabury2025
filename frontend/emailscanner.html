@@ -19,13 +19,15 @@
             const inputText = document.getElementById('inputtext').value;
 
             try {
-                const response = await fetch('/text_scan', {
+                const response = await fetch('/scanemail', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({ input_text: inputText})
                 });
+
+                console.log("Response status:", response.status);
 
                 if (!response.ok) {
                     throw new Error("1. Something went wrong1.");
