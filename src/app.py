@@ -28,14 +28,10 @@ def submit():
     logging.info("### /urlscanner - INPUTTED URL: "+input)
     return render_template('uRLScanner.html', status=uRLScan(input))
 
-@app.route('/text_scan', methods=['POST'])
-def scanemail():
-    input = request.form
-    logging.info(input)
-    return render_template('index.html')
+
 
 @app.route('/scanemail', methods=['POST'])
-def handle_scan():
+def scanemail(input_text):
      try:
         # Check if request is JSON
         if not request.is_json:

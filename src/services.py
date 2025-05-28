@@ -102,4 +102,4 @@ def text_scan(input_text):
         report_actual = "".join(report_lines)
         return jsonify({"report": report_actual}) 
     except Exception as error: 
-        raise RuntimeError(f"Unexpected error while scanning URL details: {error}")
+        return jsonify({"Error": f"Unexpected error while scanning text: {error}"}), 500
