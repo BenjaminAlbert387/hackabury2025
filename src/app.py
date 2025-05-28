@@ -32,17 +32,17 @@ def scanemail():
 
 @app.route('/scanemail', methods=['POST'])
 def handle_scan():
-    data = request.get_json()
-    if not data or 'text' not in data:
-        return jsonify({"error": "Missing 'text' field in JSON body"}), 400
-    input_text = data.get('input_text', '')
-    try:
-        report = text_scan(input_text)
-        return jsonify({"report": report}), 200
-    except RuntimeError as e:
-        return jsonify({"error": str(e)}), 500
-    except Exception as e:
-        return jsonify({"error": "Unexpected server error"}), 500
+     try:
+        # Check if request is JSON
+        if not request.is_json:
+            return jsonify({"Error": "Expected JSON body"}), 400
+
+        data = request.get_json()
+        input_text = data.get("input_text")
+
+        return text_scan(input_text)
+     except Exception as e:
+        return jsonify({"Error": f"Unexpected server error: {str(e)}"}), 500
 
 
 if __name__ == '__main__':
